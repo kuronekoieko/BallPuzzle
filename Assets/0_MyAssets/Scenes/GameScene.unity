@@ -22472,7 +22472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70cf77c9a458492fb7a1ef0545ae306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalLine: -10
+  goalLine: -20
 --- !u!1001 &1978305256
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class BallController : MonoBehaviour
         if (transform.position.y < goalLine)
         {
             isGoaled = true;
+            gameObject.SetActive(false);
         }
     }
 
