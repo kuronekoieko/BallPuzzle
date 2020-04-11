@@ -41,9 +41,8 @@ public class GameManager : MonoBehaviour
             tapPos = Input.mousePosition;
             float dragDistance = tapPos.x - downPos.x;
             Vector3 stageAngle = stages[0].eulerAngles;
-            stageAngle.z = downAngleZ + dragDistance * 0.1f;
+            stageAngle.z = downAngleZ + dragDistance * 0.2f;
             stages[0].eulerAngles = stageAngle;
-            Debug.Log(stageAngle.z);
         }
     }
 }

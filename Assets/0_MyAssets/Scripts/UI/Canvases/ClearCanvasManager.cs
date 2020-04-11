@@ -8,9 +8,6 @@ using DG.Tweening;
 public class ClearCanvasManager : BaseCanvasManager
 {
     [SerializeField] Button nextButton;
-    [SerializeField] Text coinCountText;
-    [SerializeField] Image dummyRectangleImage;
-    [SerializeField] CoinCountView coinCountView;
     public readonly ScreenState thisScreen = ScreenState.CLEAR;
 
     public override void OnStart()
@@ -19,8 +16,6 @@ public class ClearCanvasManager : BaseCanvasManager
 
         nextButton.onClick.AddListener(OnClickNextButton);
         gameObject.SetActive(false);
-        dummyRectangleImage.gameObject.SetActive(Debug.isDebugBuild);
-        coinCountView.OnStart();
     }
 
     public override void OnUpdate()

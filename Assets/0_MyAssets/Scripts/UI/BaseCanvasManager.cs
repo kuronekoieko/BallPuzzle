@@ -37,6 +37,11 @@ public class BaseCanvasManager : MonoBehaviour
     {
     }
 
+    public virtual void OnInitialize()
+    {
+
+    }
+
     /// <summary>
     /// 画面が開かれる瞬間だけ呼ばれる
     /// </summary>
