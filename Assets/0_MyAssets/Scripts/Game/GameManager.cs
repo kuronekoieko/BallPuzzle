@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     Vector3 tapPos;
     float downAngleZ;
 
-    [SerializeField] Transform stage;
+    [SerializeField] Transform[] stages;
 
     void Start()
     {
@@ -23,16 +23,16 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             downPos = Input.mousePosition;
-            downAngleZ = stage.eulerAngles.z;
+            downAngleZ = stages[0].eulerAngles.z;
         }
 
         if (Input.GetMouseButton(0))
         {
             tapPos = Input.mousePosition;
             float dragDistance = tapPos.x - downPos.x;
-            Vector3 stageAngle = stage.eulerAngles;
+            Vector3 stageAngle = stages[0].eulerAngles;
             stageAngle.z = downAngleZ + dragDistance * 0.1f;
-            stage.eulerAngles = stageAngle;
+            stages[0].eulerAngles = stageAngle;
             Debug.Log(stageAngle.z);
         }
     }
