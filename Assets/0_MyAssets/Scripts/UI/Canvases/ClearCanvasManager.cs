@@ -8,6 +8,7 @@ using DG.Tweening;
 public class ClearCanvasManager : BaseCanvasManager
 {
     [SerializeField] Button nextButton;
+    [SerializeField] UICameraController uICameraController;
     public readonly ScreenState thisScreen = ScreenState.CLEAR;
 
     public override void OnStart()
@@ -26,7 +27,12 @@ public class ClearCanvasManager : BaseCanvasManager
 
     protected override void OnOpen()
     {
-        gameObject.SetActive(true);
+        uICameraController.PlayConfetti();
+        DOVirtual.DelayedCall(1.5f, () =>
+        {
+            gameObject.SetActive(true);
+        });
+
     }
 
     protected override void OnClose()
