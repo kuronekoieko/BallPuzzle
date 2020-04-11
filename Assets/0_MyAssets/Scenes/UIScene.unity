@@ -119,9 +119,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534669905}
     m_Modifications:
+    - target: {fileID: 1073902172421878, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122683554612076, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735535746175716, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1920873459331074, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_Name
       value: ConfettiDirectionalRainbow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920873459331074, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932187497466296, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,11 +149,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -1.58
       objectReference: {fileID: 0}
     - target: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.21
+      value: 3.21
       objectReference: {fileID: 0}
     - target: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_LocalRotation.x
@@ -181,6 +201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198617934630346986, guid: 211df3921ba166e4d97f049834dc5490,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 198701170200341874, guid: 211df3921ba166e4d97f049834dc5490,
         type: 3}
@@ -466,6 +491,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534669905}
     m_Modifications:
+    - target: {fileID: 1073902172421878, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122683554612076, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1920873459331074, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_Name
       value: ConfettiDirectionalRainbow (1)
@@ -476,11 +509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -1.58
       objectReference: {fileID: 0}
     - target: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.21
+      value: 3.21
       objectReference: {fileID: 0}
     - target: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490, type: 3}
       propertyPath: m_LocalRotation.x
@@ -528,6 +561,11 @@ PrefabInstance:
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198617934630346986, guid: 211df3921ba166e4d97f049834dc5490,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 198701170200341874, guid: 211df3921ba166e4d97f049834dc5490,
         type: 3}
