@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 画面のスクリプトに継承して使う
@@ -40,6 +41,11 @@ public class BaseCanvasManager : MonoBehaviour
     public virtual void OnInitialize()
     {
 
+    }
+
+    protected void ReLoadScene()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 
     /// <summary>

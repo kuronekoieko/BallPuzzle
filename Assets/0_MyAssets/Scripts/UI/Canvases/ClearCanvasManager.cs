@@ -38,5 +38,6 @@ public class ClearCanvasManager : BaseCanvasManager
     {
         Variables.currentStageIndex++;
         Variables.screenState = ScreenState.INITIALIZE;
+        base.ReLoadScene();
     }
 }
