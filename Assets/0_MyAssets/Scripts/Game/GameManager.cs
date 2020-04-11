@@ -7,17 +7,12 @@ using UnityEngine;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    public void OnStart()
+    void Start()
     {
 
     }
 
-    public void OnInitialize()
-    {
-
-    }
-
-    public void OnUpdate()
+    void Update()
     {
 
     }
