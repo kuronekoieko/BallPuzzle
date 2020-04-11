@@ -8,26 +8,26 @@ using UnityEngine;
 /// </summary>
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] RectTransform canvasesPatent;
+    [SerializeField] GameObject dontDestroyObj;
     BaseCanvasManager[] canvases;
-    public void OnStart()
+    void Start()
     {
-        canvases = new BaseCanvasManager[canvasesPatent.childCount];
+        DontDestroyOnLoad(dontDestroyObj);
+        canvases = new BaseCanvasManager[transform.childCount];
         for (int i = 0; i < canvases.Length; i++)
         {
-            canvases[i] = canvasesPatent.GetChild(i).GetComponent<BaseCanvasManager>();
+            canvases[i] = transform.GetChild(i).GetComponent<BaseCanvasManager>();
             if (canvases[i] == null) { continue; }
             canvases[i].OnStart();
         }
     }
 
-    public void OnUpdate(ScreenState currentScreen)
+    void Update()
     {
         for (int i = 0; i < canvases.Length; i++)
         {
             if (canvases[i] == null) { continue; }
-            canvases[i].OnUpdate(currentScreen);
+            canvases[i].OnUpdate();
         }
-
     }
 }

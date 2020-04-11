@@ -9,7 +9,6 @@ public class ClearCanvasManager : BaseCanvasManager
 {
     [SerializeField] Button nextButton;
     [SerializeField] Text coinCountText;
-    [SerializeField] Button homeButton;
     [SerializeField] Image dummyRectangleImage;
     [SerializeField] CoinCountView coinCountView;
     public readonly ScreenState thisScreen = ScreenState.CLEAR;
@@ -19,15 +18,14 @@ public class ClearCanvasManager : BaseCanvasManager
         base.SetScreenAction(thisScreen: thisScreen);
 
         nextButton.onClick.AddListener(OnClickNextButton);
-        homeButton.onClick.AddListener(OnClickHomeButton);
         gameObject.SetActive(false);
         dummyRectangleImage.gameObject.SetActive(Debug.isDebugBuild);
         coinCountView.OnStart();
     }
 
-    public override void OnUpdate(ScreenState currentScreen)
+    public override void OnUpdate()
     {
-        if (currentScreen != thisScreen) { return; }
+        if (Variables.screenState != thisScreen) { return; }
 
     }
 
@@ -45,10 +43,5 @@ public class ClearCanvasManager : BaseCanvasManager
     {
         Variables.currentStageIndex++;
         Variables.screenState = ScreenState.INITIALIZE;
-    }
-
-    void OnClickHomeButton()
-    {
-        Variables.screenState = ScreenState.HOME;
     }
 }

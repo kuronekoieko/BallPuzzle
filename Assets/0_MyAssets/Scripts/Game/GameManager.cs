@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 3D空間の処理の管理
@@ -12,6 +13,15 @@ public class GameManager : MonoBehaviour
     float downAngleZ;
 
     [SerializeField] Transform[] stages;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    public static void RuntimeInitializeApplication()
+    {
+        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+        QualitySettings.vSyncCount = 0; // VSyncをOFFにする
+        Application.targetFrameRate = 30; // ターゲットフレームレートを60に設定
+    }
 
     void Start()
     {
