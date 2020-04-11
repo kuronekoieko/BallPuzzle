@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-
+    [SerializeField] ParticleSystem explosionPS;
+    [SerializeField] MeshRenderer meshRenderer;
+    Rigidbody rb;
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -16,5 +18,15 @@ public class BallController : MonoBehaviour
         {
             Variables.screenState = ScreenState.CLEAR;
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        var failPoint = other.GetComponent<FailPointController>();
+        if (failPoint == null) { return; }
+        Variables.screenState = ScreenState.FAILED;
+        explosionPS.Play();
+        meshRenderer.gameObject.SetActive(false);
+        rb.isKinematic = true;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using DG.Tweening;
 
 public class FailedCanvasManager : BaseCanvasManager
 {
@@ -27,7 +28,11 @@ public class FailedCanvasManager : BaseCanvasManager
 
     protected override void OnOpen()
     {
-        gameObject.SetActive(true);
+
+        DOVirtual.DelayedCall(1.2f, () =>
+        {
+            gameObject.SetActive(true);
+        });
     }
 
     protected override void OnClose()
@@ -38,5 +43,6 @@ public class FailedCanvasManager : BaseCanvasManager
     void OnClickRestartButton()
     {
         Variables.screenState = ScreenState.INITIALIZE;
+        base.ReLoadScene();
     }
 }
