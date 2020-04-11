@@ -45,7 +45,6 @@ public class UIManager : MonoBehaviour
 
     void Initialize()
     {
-        if (Variables.screenState == ScreenState.INITIALIZE) { return; }
         for (int i = 0; i < canvases.Length; i++)
         {
             if (canvases[i] == null) { continue; }

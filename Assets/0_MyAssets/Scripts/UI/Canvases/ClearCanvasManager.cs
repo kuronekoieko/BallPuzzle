@@ -36,7 +36,7 @@ public class ClearCanvasManager : BaseCanvasManager
 
     void OnClickNextButton()
     {
-        Variables.currentStageIndex++;
+        Variables.currentStageIndex = Mathf.Clamp(Variables.currentStageIndex + 1, 0, Variables.lastStageIndex);
         Variables.screenState = ScreenState.INITIALIZE;
         base.ReLoadScene();
     }

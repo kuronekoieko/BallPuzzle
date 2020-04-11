@@ -11,11 +11,6 @@ using UnityEngine;
 public class Variables : MonoBehaviour
 {
     public static ScreenState screenState;
-    public static GameState gameState;
-    public static int currentStageIndex
-    {
-        set { _currentstageIndex = Mathf.Clamp(value, 0, 9); }
-        get { return _currentstageIndex; }
-    }
-    private static int _currentstageIndex;
+    public static int currentStageIndex;
+    public static int lastStageIndex;
 }

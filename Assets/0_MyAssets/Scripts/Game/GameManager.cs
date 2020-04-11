@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 /// <summary>
 /// 3D空間の処理の管理
@@ -19,13 +20,19 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
         SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+
         QualitySettings.vSyncCount = 0; // VSyncをOFFにする
         Application.targetFrameRate = 30; // ターゲットフレームレートを60に設定
     }
 
     void Start()
     {
-
+        Variables.screenState = ScreenState.INITIALIZE;
+        Variables.lastStageIndex = stages.Length - 1;
+        for (int i = 0; i < stages.Length; i++)
+        {
+            stages[i].gameObject.SetActive(Variables.currentStageIndex == i);
+        }
     }
 
     void Update()
@@ -33,16 +40,16 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             downPos = Input.mousePosition;
-            downAngleZ = stages[0].eulerAngles.z;
+            downAngleZ = stages[Variables.currentStageIndex].eulerAngles.z;
         }
 
         if (Input.GetMouseButton(0))
         {
             tapPos = Input.mousePosition;
             float dragDistance = tapPos.x - downPos.x;
-            Vector3 stageAngle = stages[0].eulerAngles;
+            Vector3 stageAngle = stages[Variables.currentStageIndex].eulerAngles;
             stageAngle.z = downAngleZ + dragDistance * 0.2f;
-            stages[0].eulerAngles = stageAngle;
+            stages[Variables.currentStageIndex].eulerAngles = stageAngle;
         }
     }
 }
