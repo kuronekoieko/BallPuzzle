@@ -51,6 +51,6 @@ public class GameCanvasManager : BaseCanvasManager
 
     void ShowStageNumText()
     {
-        stageNumText.text = "Stage " + (Variables.currentStageIndex + 1).ToString("000");
+        stageNumText.text = "LEVEL " + (Variables.currentStageIndex + 1).ToString("000");
     }
 }

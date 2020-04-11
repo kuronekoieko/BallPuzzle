@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     Vector3 tapPos;
     float downAngleZ;
 
-    [SerializeField] Transform[] stages;
+    List<StageManager> stages;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     public static void RuntimeInitializeApplication()
@@ -28,10 +28,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Variables.screenState = ScreenState.INITIALIZE;
-        Variables.lastStageIndex = stages.Length - 1;
-        for (int i = 0; i < stages.Length; i++)
+        Variables.lastStageIndex = transform.childCount - 1; ;
+        stages = new List<StageManager>();
+        for (int i = 0; i < transform.childCount; i++)
         {
-            stages[i].gameObject.SetActive(Variables.currentStageIndex == i);
+            stages.Add(transform.GetChild(i).GetComponent<StageManager>());
+            stages[i].OnStart(Variables.currentStageIndex == i);
         }
     }
 
@@ -40,16 +42,21 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             downPos = Input.mousePosition;
-            downAngleZ = stages[Variables.currentStageIndex].eulerAngles.z;
+            downAngleZ = stages[Variables.currentStageIndex].transform.eulerAngles.z;
         }
 
         if (Input.GetMouseButton(0))
         {
             tapPos = Input.mousePosition;
             float dragDistance = tapPos.x - downPos.x;
-            Vector3 stageAngle = stages[Variables.currentStageIndex].eulerAngles;
+            Vector3 stageAngle = stages[Variables.currentStageIndex].transform.eulerAngles;
             stageAngle.z = downAngleZ + dragDistance * 0.2f;
-            stages[Variables.currentStageIndex].eulerAngles = stageAngle;
+            stages[Variables.currentStageIndex].transform.eulerAngles = stageAngle;
+        }
+
+        for (int i = 0; i < stages.Count; i++)
+        {
+            stages[i].OnUpdate();
         }
     }
 }

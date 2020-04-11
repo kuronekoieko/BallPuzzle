@@ -8,8 +8,6 @@ using DG.Tweening;
 public class FailedCanvasManager : BaseCanvasManager
 {
     [SerializeField] Button restartButton;
-    [SerializeField] Text coinCountText;
-    [SerializeField] CoinCountView coinCountView;
     public readonly ScreenState thisScreen = ScreenState.FAILED;
 
     public override void OnStart()
@@ -17,7 +15,6 @@ public class FailedCanvasManager : BaseCanvasManager
         base.SetScreenAction(thisScreen: thisScreen);
         restartButton.onClick.AddListener(OnClickRestartButton);
         gameObject.SetActive(false);
-        coinCountView.OnStart();
     }
 
     public override void OnUpdate()

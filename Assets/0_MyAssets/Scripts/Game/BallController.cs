@@ -7,16 +7,20 @@ public class BallController : MonoBehaviour
     [SerializeField] ParticleSystem explosionPS;
     [SerializeField] MeshRenderer meshRenderer;
     Rigidbody rb;
-    void Start()
+    public bool isGoaled { get; set; }
+    float goalLine;
+
+    public void OnStart(float goalLine)
     {
+        this.goalLine = goalLine;
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        if (transform.position.y < -5)
+        if (transform.position.y < goalLine)
         {
-            Variables.screenState = ScreenState.CLEAR;
+            isGoaled = true;
         }
     }
 
